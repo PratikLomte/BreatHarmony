@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "947871528811",
+    "project_id": "half-life-99ed7",
+    "storage_bucket": "half-life-99ed7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947871528811:android:f6c146d03b6f961efa7e2e",
+        "android_client_info": {
+          "package_name": "com.catalystmedia.half_life"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947871528811-m6uqaurdvk5pc3sks7aj9su6v91np4ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtmQaVifZqA5K3DgOtIKOTsRUz-gpt08g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947871528811-m6uqaurdvk5pc3sks7aj9su6v91np4ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

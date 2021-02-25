@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TimerCompleteScreen">
+    <TextView
+        android:textColor="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_marginTop="170dp"
+        android:layout_height="wrap_content"
+        android:text="Awesome\nyou meditated for"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/nexab"/>
+    <TextView
+        android:id="@+id/tv_oldTIme"
+        android:textColor="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:text="2:00\nminutes"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/main"/>
+</LinearLayout>

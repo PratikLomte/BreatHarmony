@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light"
+    android:orientation="vertical"
+    tools:context=".IntroductionActivity">
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textColor="@color/dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Breatharmony"
+        android:textAlignment="center"
+        android:fontFamily="@font/logo"
+        android:textSize="45dp" />
+<LinearLayout
+    android:visibility="gone"
+    android:id="@+id/ll_1"
+android:gravity="center"
+android:layout_gravity="center"
+android:layout_marginTop="60dp"
+android:layout_marginBottom="20dp"
+android:layout_height="300dp"
+android:layout_width="300dp">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plant" />
+</LinearLayout>
+    <Space
+        android:visibility="visible"
+        android:id="@+id/space2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+<androidx.appcompat.widget.AppCompatButton
+    android:background="@drawable/btn_begin_bg"
+    android:visibility="gone"
+    android:id="@+id/btn_begin"
+    android:textColor="@color/light"
+    android:layout_marginStart="80dp"
+    android:layout_marginEnd="80dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:fontFamily="@font/nexab"
+    android:backgroundTint="@color/lightgray"
+    android:text="Begin Your Journey"/>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_bottom_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:fontFamily="@font/main"
+        android:textAlignment="center"
+        android:textColor="@color/dark"
+        android:text="Say, Hi to your new friend you\n have to help him grow!"/>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        app:tint="@color/white"
+        android:id="@+id/btn_next"
+        android:src="@drawable/ic_forward"
+        app:backgroundTint="@color/lightgray"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="20dp"/>
+</LinearLayout>

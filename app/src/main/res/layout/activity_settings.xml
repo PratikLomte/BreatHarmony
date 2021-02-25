@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+    <LinearLayout
+        android:background="#161d6f"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_back"
+            android:id="@+id/btn_back_settings"
+            app:tint="@color/light" />
+        <TextView
+            android:layout_marginStart="17dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/title_settings"
+            android:text="Settings"
+            android:textColor="@color/light"
+            android:textSize="22sp"
+            android:fontFamily="@font/nexab"/>
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_reset"
+        android:fontFamily="@font/nexab"
+        android:layout_width="match_parent"
+        android:background="#E8E8E8"
+        android:textColor="#E10F08"
+        android:text="RESET ACCOUNT"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"/>
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/btn_logout"
+    android:fontFamily="@font/nexab"
+    android:layout_width="match_parent"
+    android:background="#AFAFAF"
+    android:textColor="@color/dark"
+    android:text="logout"
+    android:layout_height="50dp"
+    android:layout_centerInParent="true"/>
+</LinearLayout>

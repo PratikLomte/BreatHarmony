@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimerActivity">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/bg_1"/>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/back_from_timer"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_back"
+                    android:background="@color/white"
+                    android:tint="#FF0700"/>
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:id="@+id/mute_bg"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_music_off"
+                    android:background="@color/white"
+                    android:tint="#FF0700"/>
+            </LinearLayout>
+        <com.sasank.roundedhorizontalprogress.RoundedHorizontalProgressBar
+            android:layout_centerHorizontal="true"
+            android:id="@+id/progress_time"
+            android:layout_marginTop="10dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:maxHeight="15dp"
+            android:minHeight="15dp"
+            android:progress="80"
+            app:backgroundColor="#EAEAEA"
+            app:progressColor="@color/green"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_timer"
+            android:layout_marginTop="150dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/dark"
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_gravity="center"
+            android:text="01:56"
+            android:textSize="70dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/main"/>
+        </LinearLayout>
+        <TextView
+            android:textColor="@color/lightgray"
+            android:layout_marginTop="15dp"
+            android:id="@+id/tv_motiv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_timer"
+            android:text="You are doing great\nKeep it Up!"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/main"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            app:tint="@color/white"
+            android:visibility="visible"
+            android:id="@+id/btn_start_timer"
+            android:src="@drawable/ic_baseline_play_arrow_24"
+            app:backgroundTint="@color/green"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            app:tint="@color/white"
+            android:visibility="gone"
+            android:id="@+id/btn_pause"
+            android:src="@drawable/ic_pause"
+            app:backgroundTint="#FBC02D"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</FrameLayout>
+</LinearLayout>
