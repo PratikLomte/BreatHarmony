@@ -80,10 +80,13 @@ class TimerActivity : AppCompatActivity() {
         btn_pause.visibility = View.VISIBLE
         startTimer()
         timerState = TimerState.Running
-        updateButtons()
     }
         btn_pause.setOnClickListener {
-
+            timer.cancel()
+            mediaPlayer?.stop()
+            timerState = TimerState.Paused
+            btn_start_timer.visibility = View.VISIBLE
+            btn_pause.visibility = View.GONE
         }
         back_from_timer.setOnClickListener {
             onBackPressed()
@@ -209,7 +212,7 @@ class TimerActivity : AppCompatActivity() {
 
         if(timerState == TimerState.Running)
             startTimer()
-            updateButtons()
+
             updateCountDownUI()
     }
 
@@ -223,7 +226,6 @@ class TimerActivity : AppCompatActivity() {
         progress_time.animateProgress(2000,0,0)
         PrefUtil.setSecondsRemaining(timerLengthSeconds, this)
         secondsRemaining = timerLengthSeconds
-        updateButtons()
         updateCountDownUI()
     }
 
@@ -325,7 +327,5 @@ class TimerActivity : AppCompatActivity() {
                         else "0" + secondsStr}"
         progress_time.progress = (timerLengthSeconds - secondsRemaining).toInt()
     }
-    private fun updateButtons(){
-     //TODO: Enable pause and stop disable pause
-    }
+
 }

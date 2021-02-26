@@ -26,4 +26,19 @@
         android:textSize="30dp"
         android:textAlignment="center"
         android:fontFamily="@font/main"/>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_finish"
+        android:fontFamily="@font/nexab"
+        app:backgroundTint="@color/lightgray"
+        android:text=" FINISH"
+        android:textAlignment="center"
+        android:textColor="@color/white"/>
 </LinearLayout>

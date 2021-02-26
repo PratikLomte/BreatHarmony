@@ -18,7 +18,7 @@ class TypeSelectScreen : AppCompatActivity() {
             startActivity(intent)
         }
         cv_yoga.setOnClickListener {
-            val intent = Intent(this, PDFview::class.java)
+            val intent = Intent(this, YogaActivity::class.java)
             startActivity(intent)
         }
         cv_sleep.setOnClickListener {
