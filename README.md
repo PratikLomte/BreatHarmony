@@ -3,7 +3,7 @@
 
 ![Kotlin](https://img.shields.io/badge/Language-Kotlin-orange.svg) ![Android Studio](https://img.shields.io/badge/IDE-AndroidStudio-brightgreen.svg) ![PRs Welcome](https://img.shields.io/badge/PullRequests-welcome-pink.svg)
 
-<img src="IMAGE_LINK_OF_APP_SCREENSHOT" width="100%"/>1.jpeg</img>
+
 
 **DESCRIPTION**
 
