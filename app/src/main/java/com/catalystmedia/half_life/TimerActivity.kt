@@ -30,9 +30,12 @@ class TimerActivity : AppCompatActivity() {
     private val SELECTED_TIME = "com.catalystmedia"
     private val CURRENT_DAY = "com.catalystmedia.todays_date"
 
-    private var musicSelected = "none"
+    private var musicSelected = "None"
     private var mediaPlayer: MediaPlayer ?= null
     private var dateFormat = ""
+    private var isClicked:Boolean = true
+
+
     companion object{
         fun setAlarm(context: Context, nowSeconds: Long, secondsRemaining: Long): Long{
             val wakeUpTime = (nowSeconds + secondsRemaining) * 1000
@@ -65,13 +68,14 @@ class TimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
         Toast.makeText(this, "Press the play button when you are Ready!", Toast.LENGTH_SHORT).show()
         musicSelected = intent.getStringExtra("musicSelected").toString()
-        playMusic(musicSelected)
         checkDate()
 
         mute_bg.setOnClickListener {
-            mediaPlayer?.stop()
+          muteFun()
         }
+
     btn_start_timer.setOnClickListener {
+        playMusic(musicSelected)
         btn_start_timer.visibility = View.GONE
         btn_pause.visibility = View.VISIBLE
         startTimer()
@@ -86,17 +90,51 @@ class TimerActivity : AppCompatActivity() {
         }
     }
 
-    private fun playMusic(musicSelected: String) {
-        if(musicSelected == "rain" ){
-            mediaPlayer = MediaPlayer.create(this, R.raw.audio_rain)
-        }
-        else if (musicSelected == "sparkles"){
-            mediaPlayer = MediaPlayer.create(this, R.raw.audio_sparkles)
-        }
-        mediaPlayer?.setOnPreparedListener {
-            mediaPlayer?.start()
-        }
+    private fun shuffleMessages() {
+        var random = Random()
+        var elementNo = random.nextInt(1..10)
+//        tv_motiv.text = message[elementNo]
+    }
 
+    private fun Random.nextInt(range: IntRange): Int {
+        return range.first + nextInt(range.last - range.first)
+    }
+
+    private fun muteFun() {
+        if(isClicked){
+         mediaPlayer?.pause()
+            mute_bg.setImageResource(R.drawable.ic_baseline_music_note_24)
+            isClicked = false
+        }
+        else if (!isClicked){
+                mediaPlayer?.isLooping = true
+
+            mute_bg.setImageResource(R.drawable.ic_music_off)
+            isClicked = true
+            mediaPlayer?.start();
+            mediaPlayer?.isLooping = true
+        }
+    }
+
+    private fun playMusic(musicSelected: String) {
+        if(musicSelected == "Rain" ){
+            mediaPlayer = MediaPlayer.create(this, R.raw.audio_rain)
+            mediaPlayer?.setOnPreparedListener {
+                mediaPlayer?.start()
+                mediaPlayer?.isLooping = true
+            }
+        }
+        else if (musicSelected == "Space"){
+            mediaPlayer = MediaPlayer.create(this, R.raw.audio_sparkles)
+            mediaPlayer?.setOnPreparedListener {
+                mediaPlayer?.start()
+                mediaPlayer?.isLooping = true
+            }
+
+        }
+        else if (musicSelected == "None"){
+         mediaPlayer?.stop()
+        }
     }
 
     override fun onBackPressed() {
@@ -104,7 +142,7 @@ class TimerActivity : AppCompatActivity() {
         builder.setTitle("Are you sure to go back?")
         builder.setMessage("This will stop your Timer!")
         builder.setPositiveButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
-            super@TimerActivity.onBackPressed()
+            dialog.dismiss()
         })
         builder.setNegativeButton("Stop",
             DialogInterface.OnClickListener { dialog, id ->
@@ -114,12 +152,14 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun removePref() {
+        timerState = TimerState.Stopped
+        mediaPlayer?.stop()
       timer.cancel()
-       onTimerFinished()
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
         val editor = sharedPref.edit()
         editor.clear()
         editor.apply()
+      finish()
     }
 
 
@@ -132,7 +172,7 @@ class TimerActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-
+        mediaPlayer?.stop()
         if(timerState == TimerState.Running){
             timer.cancel()
             val wakeUpTime = setAlarm(this, nowSeconds, secondsRemaining)
@@ -148,6 +188,7 @@ class TimerActivity : AppCompatActivity() {
         PrefUtil.setTimerState(timerState, this)
         }
     private fun initTimer(){
+
         timerState = PrefUtil.getTimerState(this)
         if(timerState == TimerState.Stopped)
             setNewTimerLength()
@@ -173,10 +214,10 @@ class TimerActivity : AppCompatActivity() {
     }
 
     private fun onTimerFinished(){
+        mediaPlayer?.stop()
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(this)
         val oldTimeToDB =  sharedPref.getInt(PrefUtil.SELECTED_TIME, 2)
         addOldTimetoDB(oldTimeToDB)
-        Toast.makeText(this, "$oldTimeToDB",Toast.LENGTH_SHORT).show()
         timerState = TimerState.Stopped
         setNewTimerLength()
         progress_time.animateProgress(2000,0,0)
@@ -184,7 +225,6 @@ class TimerActivity : AppCompatActivity() {
         secondsRemaining = timerLengthSeconds
         updateButtons()
         updateCountDownUI()
-
     }
 
     private fun addOldTimetoDB(oldTimeToDB: Int) {
@@ -251,6 +291,7 @@ class TimerActivity : AppCompatActivity() {
 
     private fun startTimer()
     {
+        shuffleMessages()
         timerState = TimerState.Running
         timer = object: CountDownTimer(secondsRemaining * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {

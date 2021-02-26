@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HalfLife">
-        <activity android:name=".TimerCompleteScreen"></activity>
+        <activity android:name=".PDFview"></activity>
+        <activity android:name=".SleepActivity" />
+        <activity android:name=".YogaActivity" />
+        <activity
+            android:name=".TypeSelectScreen"
+            android:theme="@style/Theme.HalfLife.NoActionBar" />
+        <activity android:name=".TimerCompleteScreen" />
 
         <receiver
             android:name=".TimerNotificationActionReceiver"

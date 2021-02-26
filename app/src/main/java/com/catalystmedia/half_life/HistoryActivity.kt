@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.catalystmedia.half_life.adapters.HistoryAdapter
 import com.catalystmedia.half_life.models.History
-import com.events.calendar.utils.EventsCalendarUtil.today
-import com.events.calendar.views.EventsCalendar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot

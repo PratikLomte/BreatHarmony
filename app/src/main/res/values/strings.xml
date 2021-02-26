@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">Half-Life</string>
-    <string name="title">Hr:Min</string>
+    <string name="app_name">Breatharmony</string>
+    <string name="selected_item">Selected item:</string>
+    <string name="title">Hour:Mins</string>
+    <string-array name="Music">
+        <item>None</item>
+        <item>Rain</item>
+        <item>Space</item>
+    </string-array>
 </resources>

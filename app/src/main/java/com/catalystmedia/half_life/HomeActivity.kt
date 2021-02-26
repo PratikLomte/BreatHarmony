@@ -7,7 +7,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -48,7 +47,7 @@ class HomeActivity : AppCompatActivity(){
         }
 
         btn_start.setOnClickListener {
-            val intent = Intent(this, MeditationActivity::class.java)
+            val intent = Intent(this, TypeSelectScreen::class.java)
             startActivity(intent)
         }
 
@@ -62,8 +61,8 @@ class HomeActivity : AppCompatActivity(){
                 if(dataSnapshot.exists()){
                     val startDate = dataSnapshot.value.toString()
                     val currentday = ((todaysDate.toInt() - startDate.toInt())+1).toString()
-                    Toast.makeText(this@HomeActivity, currentday, Toast.LENGTH_SHORT).show()
                     addCurrentDayToPref(currentday)
+                    phaseCheck(currentday)
                 }
             }
 
@@ -87,12 +86,10 @@ class HomeActivity : AppCompatActivity(){
             val current = LocalDateTime.now()
             val formatter = DateTimeFormatter.ofPattern("yyyyMMdd")
             todaysDate =  current.format(formatter)
-            Toast.makeText(this@HomeActivity, todaysDate, Toast.LENGTH_LONG).show()
         } else {
             var date = Date()
             val formatter = SimpleDateFormat("yyyyMMdd")
             todaysDate = formatter.format(date)
-            Toast.makeText(this@HomeActivity, todaysDate, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -178,15 +175,25 @@ class HomeActivity : AppCompatActivity(){
 
         })
     }
-//
-//    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun getDate() {
-//      val localDate = LocalDate.now()
-//        Toast.makeText(this, "The date is $localDate", Toast.LENGTH_LONG).show()
-//    }
 
     private fun updateProgress(growthProgress: Int) {
         progress_tree.animateProgress(2000,0, growthProgress)
+    }
+
+    private fun phaseCheck(currentday: String) {
+        when {
+            currentday.toInt() in 0..30 -> {
+                Toast.makeText(this, "Phase 1", Toast.LENGTH_SHORT).show()
+            }
+            currentday.toInt() in 30..60 -> {
+                Toast.makeText(this, "Phase 2", Toast.LENGTH_SHORT).show()
+
+            }
+            currentday.toInt() in 60..90 -> {
+
+                Toast.makeText(this, "Phase 3", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun checkDays() {

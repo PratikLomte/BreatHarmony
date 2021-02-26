@@ -153,22 +153,9 @@
             android:layout_height="30dp"
             android:src="@drawable/ic_check"/>
     </LinearLayout>
-
-
-
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:fontFamily="@font/nexab"-->
-<!--        android:layout_marginStart="20dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        android:textSize="20dp"-->
-<!--        android:text="Say Hi to your very own Virtual Plant!"/>-->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="100dp"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

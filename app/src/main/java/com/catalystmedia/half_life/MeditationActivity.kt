@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.akexorcist.snaptimepicker.SnapTimePickerDialog
 import com.akexorcist.snaptimepicker.TimeRange
@@ -15,14 +18,41 @@ import kotlinx.android.synthetic.main.activity_meditation.*
 
 class MeditationActivity : AppCompatActivity() {
     private val SELECTED_TIME = "com.catalystmedia"
-    private var recMin = 1
+    //TODO: get recMin from Phase
+    private var recMin = 2
     private var recHr = 0
     private var selectedTime = 2
+    private var selectedMusic = "None"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_meditation)
+        val music = resources.getStringArray(R.array.Music)
 
-        btn_back_med.setOnClickListener {
+        val adapter = ArrayAdapter(this,
+            android.R.layout.simple_spinner_item, music)
+        music_spinner.adapter = adapter
+
+        music_spinner.onItemSelectedListener = object : AdapterView.OnItemClickListener,
+            OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>,
+                                        view: View, position: Int, id: Long) {
+               selectedMusic =  music[position].toString()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+            }
+
+            override fun onItemClick(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                TODO("Not yet implemented")
+            }
+        }
+            btn_back_med.setOnClickListener {
             finish()
         }
 
@@ -48,7 +78,7 @@ class MeditationActivity : AppCompatActivity() {
             editor.putInt(SELECTED_TIME, selectedTime)
             editor.apply()
             val intent = Intent(this, TimerActivity::class.java)
-            intent.putExtra("musicSelected", "sparkles" )
+            intent.putExtra("musicSelected", selectedMusic )
             startActivity(intent)
 
         }

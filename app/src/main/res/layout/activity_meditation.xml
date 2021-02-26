@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="02:00"
-        android:textSize="40dp"
+        android:textSize="60dp"
         android:textAlignment="center"
         android:fontFamily="@font/main"/>
         <ImageView
@@ -69,10 +69,11 @@
             android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:id="@+id/ib_chng_time"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_refresh"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_swap_line"
             app:tint="@color/dark" />
+
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -89,38 +90,51 @@
         android:fontFamily="@font/nexab"
         android:text="Recommended        "/>
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
     <TextView
         android:layout_weight="1"
-        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
-        android:textAlignment="textStart"
-        android:layout_marginStart="10dp"
+        android:textSize="20dp"
         android:textColor="@color/dark"
         android:fontFamily="@font/nexab"
-        android:text="Select background Music"
-        tools:ignore="RtlCompat" />
+        android:text="Background Music" />
     <Spinner
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:padding="30dp"
+        android:layout_weight="2"
         android:id="@+id/music_spinner"
         android:layout_gravity="center"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
     </LinearLayout>
-    <TextView
+    <LinearLayout
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="17dp"
-        android:layout_marginStart="10dp"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:textColor="@color/dark"
         android:fontFamily="@font/nexab"
         android:text="Meditation Theme"/>
-
+        <Spinner
+            android:padding="30dp"
+            android:gravity="center"
+            android:layout_weight="2"
+            android:id="@+id/theme_spinner"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"/>
+    </LinearLayout>
 
     <Space
         android:layout_width="wrap_content"
@@ -134,7 +148,7 @@
         android:id="@+id/btn_begin"
         android:fontFamily="@font/nexab"
         app:backgroundTint="@color/lightgray"
-        android:text="DONE"
+        android:text=" BEGIN"
         android:textAlignment="center"
         android:textColor="@color/white"/>
 </LinearLayout>
