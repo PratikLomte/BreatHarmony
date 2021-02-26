@@ -8,9 +8,9 @@
 **DESCRIPTION**
 
 ## About App
-*Our application  breatharmony consists of a regular meditation  routine program along with yoga which will be introduced to the user in the upcoming phases. 
-*To enhance gamification, with every growing phase a tree will be growing to indicate user's progress and if meditation is discontinued for a longer duration  then the tree  will be going back to it's initial state. Thus, the growing tree helps in user's habit building.  
-*Yoga that is introduced in the futher stages aslo has a guide with pictures for better understanding of correct yoga postures.
+* Our application  breatharmony consists of a regular meditation  routine program along with yoga which will be introduced to the user in the upcoming phases. 
+* To enhance gamification, with every growing phase a tree will be growing to indicate user's progress and if meditation is discontinued for a longer duration  then the tree  will be going back to it's initial state. Thus, the growing tree helps in user's habit building.  
+* Yoga that is introduced in the futher stages aslo has a guide with pictures for better understanding of correct yoga postures.
 
 :loudspeaker: This app was created in 24 hours as part of Hackathon
 
